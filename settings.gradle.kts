@@ -1,1 +1,1 @@
-rootProject.name = "MVVMActivityTemplate"
+rootProject.name = "AndroidArchitectureTemplates"

@@ -1,40 +1,46 @@
-# MVVMActivityTemplate
-
-![Build](https://github.com/andresdrg/MVVMActivityTemplate/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Verify the [pluginGroup](./gradle.properties), [plugin ID](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+## AndroidArchitectureTemplates
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+In order to speed up the development according to this architecture you can use the templates created in the following repo.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+How to install the templates
+
+As this is a actual plugin, it can be published to be available in the marketplace, but as is a plugin that generates boilerplate code it can change and get deprecated very easily, so will be better to keep the installation of it manually:
+
+Download the [latest release](https://github.com/andresdrg/MVVMActivityTemplate/releases/latest) and generate a new .jar plugin by launching intellij gradle task "buildPlugin", it will generate a .jar at "rootProject/build/libs" with the name "AndroidArchitectureTemplates-{versionNumber}.jar"
+Then go <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
+Select the previously generated .jar plugin and restart Android Studio.
+
+Then simple try to generate a new Activity or Fragment and select the new available templates.
+
 <!-- Plugin description end -->
 
-## Installation
+## Available Templates
 
-- Using IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "MVVMActivityTemplate"</kbd> >
-  <kbd>Install Plugin</kbd>
-  
-- Manually:
+### MVVM Activity
+This template will generate three classes (Activity, State, ViewModel) and
+one .xml file with basic boiler plate code.
 
-  Download the [latest release](https://github.com/andresdrg/MVVMActivityTemplate/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+### MVVM Binding Activity
+This template will generate the same classes as in the previous one plus the layout resource associated with the view.
 
+> **Note**
+> Activity templates will not include the generated activity in the manifest, you will have to add it
+> manually, this improve is currently WIP
+
+### MVVM Binding Fragment
+This template will generate 4 classes (Fragment, ViewState, FragmentState, ViewModel) and one .xml file
+with basic boiler plate code, along with the associated resources with the view binding
+
+### RecyclerView  WIP 
+Template with main extension functions and methods for the RecyclerView widget. /*TODO*/
+
+Some notes about templates
+Templates requires that your project minimum target SDK is API level 21.
+
+If you want to update Android Studio you would need to remove them before updating.
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
